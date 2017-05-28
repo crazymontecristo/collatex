@@ -137,7 +137,7 @@ def export_alignment_table_as_tei(table, indent=None):
             if not (len(p)):  # Result starts with non-varying reading
                 p.text = re.sub('\s+$','',text_node) + "\n" if indent else text_node
             else:  # Non-varying reading after some <app>
-                app.tail = "\n" + re.sub('\s+$','',text_node) + "\n" if indent else text_node
+                app.tail += "\n" + re.sub('\s+$','',text_node) + "\n" if indent else text_node
         else:
             app = etree.Element('app')
             preceding = None  # If preceding is None, we're processing the first <rdg> child
